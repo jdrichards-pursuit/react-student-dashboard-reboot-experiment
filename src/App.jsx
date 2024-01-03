@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from 'react-router-dom'
 import Student from './Student'
+import Details from './Details'
 
 import './App.css'
 
@@ -16,9 +18,15 @@ const App = () => {
   }, [])
 
   return <div>
-    <ul className="student-list">
-      {fullCohort.map(student => <Student key={student.id} student={student} />)}
-    </ul>
+    <Routes>
+      <Route path='/' element={
+        <ul className="student-list">
+          {fullCohort.map(student => <Student key={student.id} student={student} />)}
+        </ul>
+      } />
+      <Route path='/students/:id' element={<Details fullCohort={fullCohort} />} />
+    </Routes>
+
 
   </div>
 };
