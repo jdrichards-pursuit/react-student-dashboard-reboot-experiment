@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Student from './Student'
 
 const App = () => {
   const [fullCohort, setFullCohort] = useState([])
@@ -12,8 +13,11 @@ const App = () => {
     })()
   }, [])
 
-  return <div>{console.log(fullCohort)}
-    <h1>Hello</h1>
+  return <div>
+    <ul>
+      {fullCohort.map(student => <Student student={student} />)}
+    </ul>
+
   </div>
 };
 
