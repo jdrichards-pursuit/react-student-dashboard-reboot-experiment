@@ -42,7 +42,7 @@ const MainItem = (item, chosenCohort, setChosenCohort) => {
   // const [theNotes, setNotes] = useState([...item.notes]);
 
   console.log(setChosenCohort);
-  const handleSubmit = (e, id) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     if (singleNote.commenter === "" || singleNote.comment === "")
       return alert("Please Enter your name and a comment");
@@ -56,7 +56,7 @@ const MainItem = (item, chosenCohort, setChosenCohort) => {
 
     setTheNotes([...theNotes, singleNote]);
     window.localStorage.setItem(
-      id + "Notes",
+      id + "-Notes",
       JSON.stringify([...theNotes, singleNote])
     );
 
