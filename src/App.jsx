@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Student from './Student'
 
+import './App.css'
+
 const App = () => {
   const [fullCohort, setFullCohort] = useState([])
 
@@ -14,8 +16,8 @@ const App = () => {
   }, [])
 
   return <div>
-    <ul>
-      {fullCohort.map(student => <Student student={student} />)}
+    <ul className="student-list">
+      {fullCohort.map(student => <Student key={student.id} student={student} />)}
     </ul>
 
   </div>
