@@ -23,11 +23,11 @@ export default function StudentFormEdit() {
         }
         console.log(id)
         console.log(username)
-        fetch(`http://localhost:5001/api/students/${id}`, options).then(response => response.json()).then(() => navigate(`/students/${id}`))
+        fetch(`https://react-student-dashboard-reboot-server.onrender.com/api/students/api/students/${id}`, options).then(response => response.json()).then(() => navigate(`/students/${id}`))
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5001/api/students/${id}`).then(response => response.json()).then(data => {
+        fetch(`https://react-student-dashboard-reboot-server.onrender.com/api/students/api/students/${id}`).then(response => response.json()).then(data => {
             setUsername({ id: data.id, username: data.username })
         })
     }, [id])
