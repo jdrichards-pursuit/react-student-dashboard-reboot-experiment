@@ -19,7 +19,7 @@ const App = () => {
 
   useEffect(() => {
     async function fetcher() {
-      const res = await fetch(`${URL}/api/students`)
+      const res = await fetch(`https://react-student-dashboard-reboot-server.onrender.com/api/students`)
       const data = await res.json()
       setFullCohort(data)
     }
