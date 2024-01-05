@@ -4,18 +4,26 @@ import Student from './Student'
 import Details from './Details'
 import StudentFormEdit from './StudentFormEdit'
 
+
+
 import './App.css'
+
+
+const URL = import.meta.env.VITE_BASE_API_URL
+
+console.log('url', URL)
 
 const App = () => {
   const [fullCohort, setFullCohort] = useState([])
 
 
   useEffect(() => {
-    (async function () {
-      const res = await fetch('http://localhost:5001/api/students')
+    async function fetcher() {
+      const res = await fetch(`${URL}/api/students`)
       const data = await res.json()
       setFullCohort(data)
-    })()
+    }
+    fetcher()
   }, [])
 
   return <div>
