@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import './Student.css'
 
 function setMonth(val) {
+    console.log(typeof val)
     let x = val.split('/');
 
     const date = new Date(Date.UTC(x[0], x[1], x[2]));
@@ -14,7 +15,7 @@ function setMonth(val) {
 export default function Student({ student }) {
 
     const { profilePhoto, preferredName, middleName, surname, username, dob, id } = student
-
+    // console.log(dob)
 
     return (
         <Link to={`/students/${id}`}>

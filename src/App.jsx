@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom'
 import Student from './Student'
 import Details from './Details'
+import StudentFormEdit from './StudentFormEdit'
 
 import './App.css'
 
@@ -25,6 +26,7 @@ const App = () => {
         </ul>
       } />
       <Route path='/students/:id' element={<Details fullCohort={fullCohort} />} />
+      <Route path='/students/:id/edit' element={<StudentFormEdit fullCohort={fullCohort} />} />
     </Routes>
 
 
