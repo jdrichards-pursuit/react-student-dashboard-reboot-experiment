@@ -5,6 +5,7 @@ import Details from './Details'
 import StudentFormEdit from './StudentFormEdit'
 
 import './App.css'
+const URL = import.meta.env.VITE_BASE_API_URL
 
 const App = () => {
   const [fullCohort, setFullCohort] = useState([])
@@ -12,7 +13,7 @@ const App = () => {
 
   useEffect(() => {
     async function fetcher() {
-      const res = await fetch(`https://react-student-dashboard-reboot-server.onrender.com/api/students`)
+      const res = await fetch(`${URL}/api/students`)
       const data = await res.json()
       setFullCohort(data)
     }

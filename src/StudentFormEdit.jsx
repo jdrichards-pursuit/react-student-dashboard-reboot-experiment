@@ -1,8 +1,10 @@
 
 import { useParams, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-export default function StudentFormEdit() {
 
+
+export default function StudentFormEdit() {
+    const URL = import.meta.env.VITE_BASE_API_URL
     const { id } = useParams()
     const navigate = useNavigate()
 
@@ -15,19 +17,18 @@ export default function StudentFormEdit() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log(username)
+
         const options = {
             method: 'PATCH',
             body: JSON.stringify(username),
             headers: { "Content-Type": "application/json" }
         }
-        console.log(id)
-        console.log(username)
-        fetch(`https://react-student-dashboard-reboot-server.onrender.com/api/students/api/students/${id}`, options).then(response => response.json()).then(() => navigate(`/students/${id}`))
+
+        fetch(`${URL}/api/students/${id}`, options).then(response => response.json()).then(() => navigate(`/students/${id}`))
     }
 
     useEffect(() => {
-        fetch(`https://react-student-dashboard-reboot-server.onrender.com/api/students/api/students/${id}`).then(response => response.json()).then(data => {
+        fetch(`${URL}/api/students/${id}`).then(response => response.json()).then(data => {
             setUsername({ id: data.id, username: data.username })
         })
     }, [id])
