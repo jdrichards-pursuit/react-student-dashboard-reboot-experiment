@@ -4,14 +4,7 @@ import Student from './Student'
 import Details from './Details'
 import StudentFormEdit from './StudentFormEdit'
 
-
-
 import './App.css'
-
-
-// const URL = import.meta.env.VITE_BASE_API_URL
-
-console.log('url', URL)
 
 const App = () => {
   const [fullCohort, setFullCohort] = useState([])
